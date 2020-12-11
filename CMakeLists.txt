@@ -30,11 +30,11 @@ catkin_package(
 include_directories(include ${catkin_INCLUDE_DIRS})
 
 qt5_wrap_cpp(MOC_FILES
-  include/snowbot_operating_system/snow_display.h
+  include/snowbot_operating_system/sheep_display.h
 )
 
 add_library(snow_display
-    src/snow_display.cpp
+    src/sheep_display.cpp
     ${MOC_FILES}
 )
 add_dependencies(snow_display ${catkin_EXPORTED_TARGETS})
