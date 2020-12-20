@@ -32,18 +32,31 @@
  *  POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef SNOWBOT_OPERATING_SYSTEM_WINTER_DISPLAY_H
-#define SNOWBOT_OPERATING_SYSTEM_WINTER_DISPLAY_H
+#ifndef RVIZ_SHEEP_SNOW_WINTER_DISPLAY_H
+#define RVIZ_SHEEP_SNOW_WINTER_DISPLAY_H
 
+#include <geometry_msgs/Point.h>
+#include <rviz/default_plugin/marker_display.h>
 #include <rviz/display.h>
 #include <rviz/ogre_helpers/point_cloud.h>
-#include <rviz/properties/int_property.h>
 #include <rviz/properties/float_property.h>
-#include <geometry_msgs/Point.h>
+#include <rviz/properties/int_property.h>
 #include <vector>
+#include <visualization_msgs/Marker.h>
+#include <visualization_msgs/MarkerArray.h>
 
-namespace snowbot_operating_system
+
+namespace rviz
 {
+  class MarkerBase;
+}
+
+namespace rviz_sheep_snow
+{
+
+typedef boost::shared_ptr<rviz::MarkerBase> MarkerBasePtr;
+typedef std::pair<std::string, int32_t> MarkerID;
+
 inline double randScale()
 {
   return static_cast<double>(rand()) / RAND_MAX;
@@ -74,15 +87,24 @@ private:
 
   std::vector<geometry_msgs::Point> points_;
 
+  rviz::BoolProperty* snow_enabled_property_;
+  rviz::BoolProperty* sheep_enabled_property_;
   rviz::FloatProperty* width_property_;
   rviz::FloatProperty* height_property_;
   rviz::FloatProperty* gravity_property_;
   rviz::FloatProperty* wind_property_;
   rviz::FloatProperty* jiggle_property_;
+  rviz::FloatProperty* sheep_size_property_;
   rviz::IntProperty* size_property_;
+  rviz::MarkerDisplay marker_display_;
+  std::map<MarkerID, MarkerBasePtr> markers_;
+  std::vector<MarkerID> id_vec_;
+  visualization_msgs::Marker marker_message_;
 
   double width_, height_;
+  bool snow_enabled_, sheep_enabled_;
+  float sheep_size_;
 };
-}  // namespace snowbot_operating_system
+}  // namespace rviz_sheep_snow
 
-#endif  // SNOWBOT_OPERATING_SYSTEM_WINTER_DISPLAY_H
+#endif  // RVIZ_SHEEP_SNOW_WINTER_DISPLAY_H

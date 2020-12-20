@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(snowbot_operating_system)
+project(rviz_sheep_snow)
 set_directory_properties(PROPERTIES COMPILE_OPTIONS "-std=c++11;-Wall;-Werror")
 
 find_package(catkin REQUIRED COMPONENTS
@@ -30,11 +30,11 @@ catkin_package(
 include_directories(include ${catkin_INCLUDE_DIRS})
 
 qt5_wrap_cpp(MOC_FILES
-  include/snowbot_operating_system/sheep_display.h
+  include/rviz_sheep_snow/snow_display.h
 )
 
 add_library(snow_display
-    src/sheep_display.cpp
+    src/snow_display.cpp
     ${MOC_FILES}
 )
 add_dependencies(snow_display ${catkin_EXPORTED_TARGETS})
@@ -57,6 +57,6 @@ install(DIRECTORY include/${PROJECT_NAME}/
 install(FILES rviz_plugins.xml
         DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
-install(FILES icons/classes/Snow.png
+install(FILES meshes/sheep.png
         DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/icons/classes
 )
