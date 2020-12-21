@@ -1,5 +1,5 @@
-# Snowbot Operating System
+# RViz Sheep Snow
 
 A useless RViz plugin.
 
-Snowflake icon by Danielle Garbouchian from the Noun Project
+<img src="sheep_demo.gif" width="400">    <img src="snow_demo.gif" width="400">
