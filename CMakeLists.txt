@@ -57,6 +57,6 @@ install(DIRECTORY include/${PROJECT_NAME}/
 install(FILES rviz_plugins.xml
         DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
-install(FILES meshes/sheep.png
+install(FILES icons/classes/Sheep-Snow.png
         DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/icons/classes
 )
